@@ -28,11 +28,17 @@ while game_is_on:
     if serpiente.head.distance(food) <= 15:
         food.refresh()
         scoreboard.prompt()
+        serpiente.extend()
         
-    if serpiente.head.xcor() < -270 or serpiente.head.xcor() > 270 or serpiente.head.ycor() < -270 or serpiente.head.ycor() > 270:
+    if serpiente.head.xcor() < -280 or serpiente.head.xcor() > 280 or serpiente.head.ycor() < -280 or serpiente.head.ycor() > 280:
         game_is_on = False
         scoreboard.game_over() 
     
+    for segmento in serpiente.new_segments[1:]:
+        if serpiente.head.distance(segmento) < 10:
+            game_is_on = False
+            scoreboard.game_over() 
+            
         
 screen.exitonclick()
 
