@@ -29,7 +29,9 @@ while game_is_on:
         food.refresh()
         scoreboard.prompt()
         
-
+    if serpiente.head.xcor() < -270 or serpiente.head.xcor() > 270 or serpiente.head.ycor() < -270 or serpiente.head.ycor() > 270:
+        game_is_on = False
+        scoreboard.game_over() 
     
         
 screen.exitonclick()
