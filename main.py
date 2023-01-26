@@ -27,7 +27,7 @@ while game_is_on:
 
     if serpiente.head.distance(food) <= 15:
         food.refresh()
-        scoreboard.prompt()
+        scoreboard.increase_score()
         serpiente.extend()
         
     if serpiente.head.xcor() < -280 or serpiente.head.xcor() > 280 or serpiente.head.ycor() < -280 or serpiente.head.ycor() > 280:
