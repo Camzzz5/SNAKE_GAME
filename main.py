@@ -31,13 +31,15 @@ while game_is_on:
         serpiente.extend()
         
     if serpiente.head.xcor() < -280 or serpiente.head.xcor() > 280 or serpiente.head.ycor() < -280 or serpiente.head.ycor() > 280:
-        game_is_on = False
-        scoreboard.game_over() 
+        scoreboard.reset() 
+        serpiente.reset()
     
     for segmento in serpiente.new_segments[1:]:
-        if serpiente.head.distance(segmento) < 10:
-            game_is_on = False
-            scoreboard.game_over() 
+        if segmento == serpiente.head:
+            pass
+        elif serpiente.head.distance(segmento) < 10:
+            scoreboard.reset() 
+            serpiente.reset()
             
         
 screen.exitonclick()
